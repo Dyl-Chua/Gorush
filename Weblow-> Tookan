@@ -1,0 +1,57 @@
+
+<body>
+    <script>
+    
+     let inputElement = document.getElementById('Contact-Number');
+  let inputElement2 = document.getElementById('Bru-HIMS-Number');
+  let inputElement3 = document.getElementById('IC-Number');
+  let inputElement4 = document.getElementById('Postal-Code');
+  let inputElement5 = document.getElementById('Additional-Contact-Number');
+        
+var request = new XMLHttpRequest();
+
+request.open('POST', 'https://api.tookanapp.com/v2/create_task');
+
+request.setRequestHeader('Content-Type', 'application/json');
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Status:', this.status);
+    console.log('Headers:', this.getAllResponseHeaders());
+    console.log('Body:', this.responseText);
+  }
+};
+
+var body = {
+  'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+  'order_id': 'Bru-HIMS-Number',
+  'job_description': 'Type-Of-Mandatory',
+  'customer_email': 'id-Email',
+  'customer_username': 'Full-Name',
+  'customer_phone': 'Contact-Number',
+  'customer_address': 'Brunei',
+  'latitude': '',
+  'longitude': '',
+  'job_delivery_datetime': '2021-10-31 21:00:00',
+  'custom_field_template': '',
+  'meta_data': [
+ 
+  ],
+  'team_id': '921691',
+  'auto_assignment': '0',
+  'has_pickup': '0',
+  'has_delivery': '1',
+  'layout_type': '0',
+  'tracking_link': 0,
+  'timezone': '-480',
+  'fleet_id': '',
+  'ref_images': [
+  ],
+  'notify': 1,
+  'tags': '',
+  'geofence': 0
+};
+
+request.send(JSON.stringify(body));
+</script>
+</body>
